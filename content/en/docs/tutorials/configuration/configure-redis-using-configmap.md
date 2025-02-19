@@ -51,7 +51,7 @@ EOF
 
 ## Step 2: Create a new Redis instance
 
-1. Open a terminal and naviage to the same directory as your example YAML file.
+1. Open a terminal and navigate to the same directory as your example YAML file.
 
 2. Use the following commands in the terminal to apply the example ConfigMap and build a Redis pod from a sample manifest.
 
@@ -78,7 +78,7 @@ kubectl get pod my-redis-pod -o yaml > redis-pod.yaml
 This has the net effect of exposing the data in `data.redis-config` from the `example-redis-config`
 ConfigMap above as `/redis-master/redis.conf` inside the Pod.
 
-The following code sample shows what the YAML output should look like:
+The following code sample shows what the full YAML output should look like:
 
 {{% code_sample file="pods/config/redis-pod.yaml" %}}
 
@@ -98,7 +98,7 @@ NAME                             DATA   AGE
 configmap/example-redis-config   1      14s
 ```
 
-Note that we left `redis-config` key in the `example-redis-config` ConfigMap blank:
+4. Remember that we left `redis-config` key in the `example-redis-config` ConfigMap blank. To view the redis-config, run the following command:
 
 ```shell
 kubectl describe configmap/example-redis-config
@@ -153,7 +153,7 @@ You should see the default value of `noeviction`:
 
 ## Step 5: Update the ConfigMap
 
-In this step, you will use the following example values to update your ConfigMap.
+In this step, you will use the following example values to update your ConfigMap with new configurations. Before the changes are applied, you will need to restart your Redis pod.
 
 {{% code_sample file="pods/config/example-redis-config.yaml" %}}
 
